@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_practise/my_provider/my_provider.dart';
+import 'package:provider_practise/views/cart_page.dart';
+import 'package:provider_practise/views/model/cart_model.dart';
 
 class DeatilsPage extends StatelessWidget {
   const DeatilsPage(
@@ -9,11 +11,13 @@ class DeatilsPage extends StatelessWidget {
       required this.price,
       required this.image,
       required this.name,
-      required this.quntity});
+      required this.quntity,
+      required this.index});
   final String image;
   final String name;
   final int price;
   final int quntity;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -144,34 +148,68 @@ class DeatilsPage extends StatelessWidget {
                     ],
                   ),
                 ),
+                // myprvid.cart.contains(index)== index
+                //     ? InkWell(
+                //         onTap: () {
+                //           Navigator.push(
+                //             context,
+                //             MaterialPageRoute(
+                //               builder: (context) {
+                //                 return CartPage();
+                //               },
+                //             ),
+                //           );
+                //         },
+                //         child: Container(
+                //           width: 120,
+                //           height: 50,
+                //           decoration: BoxDecoration(
+                //               color: Colors.black,
+                //               borderRadius: BorderRadius.circular(12)),
+                //           child: const Row(
+                //             mainAxisAlignment: MainAxisAlignment.center,
+                //             children: [
+                //               Text(
+                //                 'Go to cart',
+                //                 style: TextStyle(
+                //                     fontSize: 16,
+                //                     fontWeight: FontWeight.w600,
+                //                     color: Colors.white),
+                //               ),
+                //             ],
+                //           ),
+                //         ))
+                // :
                 InkWell(
-                  onTap: () {
-                    myprvid.addToCart(
-                        image: image,
+                    onTap: () {
+                      myprvid.addToCart(
+                          cartModel: CartModel(
                         name: name,
-                        price: price,
-                        qunatity: myprvid.count.toString());
-                  },
-                  child: Container(
-                    width: 120,
-                    height: 50,
-                    decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(12)),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Add to cart',
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white),
-                        ),
-                      ],
-                    ),
-                  ),
-                )
+                        imagepath: image,
+                        price: price * myprvid.count,
+                        quntity: myprvid.count,
+                        index: index,
+                      ));
+                    },
+                    child: Container(
+                      width: 120,
+                      height: 50,
+                      decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(12)),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Add to cart',
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    )),
               ],
             ),
           ),

@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:provider_practise/views/model/cart_model.dart';
 
 class Myprovider with ChangeNotifier {
-  int count = 0;
+  int count = 1;
   int selectedIndex = 0;
   int appbarIndex = 0;
   int? favoriteIndex;
+  int countcart = 0;
 
-  final List<CartModel> cart = [];
+  late CartModel cartModel;
+
+  List<CartModel> cart = [];
 
   void appbarIn(int index) {
     appbarIndex = index;
@@ -26,7 +29,7 @@ class Myprovider with ChangeNotifier {
   }
 
   void sub() {
-    if (count > 0) {
+    if (count > 1) {
       count--;
     }
     notifyListeners();
@@ -37,24 +40,15 @@ class Myprovider with ChangeNotifier {
     notifyListeners();
   }
 
-  int totalAt(int price) {
-    int total = price * count;
-    return total;
-  }
-
   void deleteAt(int index) {
     cart.removeAt(index);
     notifyListeners();
   }
 
-  void addToCart(
-      {required String image,
-      required String name,
-      required int price,
-      required String qunatity}) {
+  void addToCart({required CartModel cartModel}) {
     if (count > 0) {
-      cart.add(CartModel(
-          name: name, imagepath: image, price: price * count, quntity: count));
+      cart.add(cartModel);
+      notifyListeners();
     }
   }
 }

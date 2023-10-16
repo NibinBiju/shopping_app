@@ -166,6 +166,7 @@ class Homepage extends StatelessWidget {
                             price: image[index][1],
                             name: image[index][2],
                             quntity: image[index][3],
+                            index: index,
                           );
                         },
                       ));
