@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_practise/my_provider/my_provider.dart';
+import 'package:provider_practise/controller/my_provider/my_provider.dart';
 import 'package:provider_practise/views/cart_page.dart';
 import 'package:provider_practise/views/favorite_page.dart';
-import 'package:provider_practise/views/page2.dart';
+import 'package:provider_practise/views/home_page.dart';
 import 'package:provider_practise/views/settings_page.dart';
 
 class MainBottomNavigation extends StatelessWidget {

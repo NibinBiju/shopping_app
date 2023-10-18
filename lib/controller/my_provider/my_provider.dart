@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider_practise/views/model/cart_model.dart';
+import 'package:provider_practise/model/cart_model.dart';
 
 class Myprovider with ChangeNotifier {
   int count = 1;

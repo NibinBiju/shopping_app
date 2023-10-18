@@ -1,9 +1,9 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_practise/my_provider/my_provider.dart';
+import 'package:provider_practise/controller/my_provider/my_provider.dart';
 import 'package:provider_practise/views/cart_page.dart';
-import 'package:provider_practise/views/model/cart_model.dart';
+import 'package:provider_practise/model/cart_model.dart';
 
 class DeatilsPage extends StatelessWidget {
   const DeatilsPage(

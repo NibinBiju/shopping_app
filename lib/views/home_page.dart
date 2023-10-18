@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_practise/my_provider/my_provider.dart';
-import 'package:provider_practise/views/detail_Page.dart';
+import 'package:provider_practise/controller/my_provider/my_provider.dart';
+import 'package:provider_practise/views/detail_page.dart';
 
 class Homepage extends StatelessWidget {
   Homepage({
