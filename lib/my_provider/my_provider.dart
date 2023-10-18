@@ -7,10 +7,15 @@ class Myprovider with ChangeNotifier {
   int appbarIndex = 0;
   int? favoriteIndex;
   int countcart = 0;
+  int countfa = 1;
 
   late CartModel cartModel;
 
   List<CartModel> cart = [];
+  void add2() {
+    countfa++;
+    notifyListeners();
+  }
 
   void appbarIn(int index) {
     appbarIndex = index;
@@ -50,5 +55,13 @@ class Myprovider with ChangeNotifier {
       cart.add(cartModel);
       notifyListeners();
     }
+  }
+
+  void addcart(int value) {
+    value++;
+  }
+
+  void subcart(int value) {
+    value--;
   }
 }

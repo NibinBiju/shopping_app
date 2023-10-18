@@ -148,68 +148,67 @@ class DeatilsPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                // myprvid.cart.contains(index)== index
-                //     ? InkWell(
-                //         onTap: () {
-                //           Navigator.push(
-                //             context,
-                //             MaterialPageRoute(
-                //               builder: (context) {
-                //                 return CartPage();
-                //               },
-                //             ),
-                //           );
-                //         },
-                //         child: Container(
-                //           width: 120,
-                //           height: 50,
-                //           decoration: BoxDecoration(
-                //               color: Colors.black,
-                //               borderRadius: BorderRadius.circular(12)),
-                //           child: const Row(
-                //             mainAxisAlignment: MainAxisAlignment.center,
-                //             children: [
-                //               Text(
-                //                 'Go to cart',
-                //                 style: TextStyle(
-                //                     fontSize: 16,
-                //                     fontWeight: FontWeight.w600,
-                //                     color: Colors.white),
-                //               ),
-                //             ],
-                //           ),
-                //         ))
-                // :
-                InkWell(
-                    onTap: () {
-                      myprvid.addToCart(
-                          cartModel: CartModel(
-                        name: name,
-                        imagepath: image,
-                        price: price * myprvid.count,
-                        quntity: myprvid.count,
-                        index: index,
-                      ));
-                    },
-                    child: Container(
-                      width: 120,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.circular(12)),
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Add to cart',
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.white),
+                myprvid.cart.any((element) => element.index == index)
+                    ? InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return CartPage();
+                              },
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: 120,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(12)),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Go to cart',
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.white),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    )),
+                        ))
+                    : InkWell(
+                        onTap: () {
+                          myprvid.addToCart(
+                              cartModel: CartModel(
+                            name: name,
+                            imagepath: image,
+                            price: price * myprvid.count,
+                            quntity: myprvid.count,
+                            index: index,
+                          ));
+                        },
+                        child: Container(
+                          width: 120,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(12)),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Add to cart',
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        )),
               ],
             ),
           ),

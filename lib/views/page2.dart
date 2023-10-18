@@ -57,54 +57,52 @@ class Homepage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 20, top: 20),
-            child: Row(
-              children: [
-                Container(
-                  height: 70,
-                  width: 300,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(166, 206, 200, 200),
-                    borderRadius: BorderRadius.circular(17),
-                  ),
-                  child: const Center(
-                    child: TextField(
-                      cursorColor: Colors.transparent,
-                      style: TextStyle(
-                        fontSize: 24,
-                      ),
-                      decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Search',
-                          prefixIcon: Icon(
-                            Icons.search,
-                            color: Colors.black,
-                            size: 30,
-                          )),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 70,
+                width: 300,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(166, 206, 200, 200),
+                  borderRadius: BorderRadius.circular(17),
+                ),
+                child: const Center(
+                  child: TextField(
+                    cursorColor: Colors.transparent,
+                    style: TextStyle(
+                      fontSize: 24,
                     ),
+                    decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'Search',
+                        prefixIcon: Icon(
+                          Icons.search,
+                          color: Colors.black,
+                          size: 30,
+                        )),
                   ),
                 ),
-                const SizedBox(
-                  width: 10,
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Container(
+                height: 70,
+                width: 70,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(17),
                 ),
-                Container(
-                  height: 70,
-                  width: 70,
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(17),
-                  ),
-                  child: const Center(
-                    child: Icon(
-                      Icons.vertical_distribute_rounded,
-                      color: Colors.white,
-                      size: 25,
-                    ),
+                child: const Center(
+                  child: Icon(
+                    Icons.vertical_distribute_rounded,
+                    color: Colors.white,
+                    size: 25,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
           const SizedBox(
             height: 10,
@@ -161,6 +159,7 @@ class Homepage extends StatelessWidget {
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(
                         builder: (context) {
+                          myprvid.count = 1;
                           return DeatilsPage(
                             image: image[index][0],
                             price: image[index][1],
@@ -181,9 +180,11 @@ class Homepage extends StatelessWidget {
                           children: [
                             Center(
                               child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   SizedBox(
-                                    height: 125,
+                                    height: 119,
                                     child: Image.asset(
                                       image[index][0],
                                     ),
