@@ -63,13 +63,17 @@ class DeatilsPage extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
+            const SizedBox(
+              height: 10,
+            ),
             //qunatity and price
-            Expanded(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    price.toString(),
+                    "Price:- ${price.toString()}",
                     style: const TextStyle(
                       fontSize: 23,
                       fontWeight: FontWeight.w600,
@@ -119,16 +123,16 @@ class DeatilsPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  width: 120,
+                  width: 150,
                   height: 50,
                   decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 138, 135, 135),
                       borderRadius: BorderRadius.circular(12)),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       const Text(
-                        'price',
+                        'Total Price',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
@@ -155,7 +159,7 @@ class DeatilsPage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return CartPage();
+                                return const CartPage();
                               },
                             ),
                           );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_practise/model/cart_model.dart';
 import '../controller/my_provider/my_provider.dart';
 
 // ignore: must_be_immutable
@@ -79,51 +80,90 @@ class CartPage extends StatelessWidget {
                                     showDialog(
                                       context: context,
                                       builder: (context) {
-                                        return SimpleDialog(
-                                          children: [
-                                            Image(
-                                              image: AssetImage(
-                                                myprvid.cart[index].imagepath,
-                                              ),
-                                            ),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              children: [
-                                                ElevatedButton(
-                                                    onPressed: () {
-                                                      myprvid.subcart(myprvid
-                                                          .cart[index].quntity);
-                                                    },
-                                                    child:
-                                                        const Icon(Icons.add)),
-                                                Text(
-                                                  myprvid.cart[index].quntity
-                                                      .toString(),
-                                                  style: const TextStyle(
-                                                    fontSize: 27,
-                                                    fontWeight: FontWeight.w700,
+                                        return ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(22),
+                                          child: SimpleDialog(
+                                            children: [
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Image(
+                                                    image: AssetImage(
+                                                      myprvid.cart[index]
+                                                          .imagepath,
+                                                    ),
                                                   ),
-                                                ),
-                                                ElevatedButton(
-                                                    onPressed: () {
-                                                      myprvid.addcart(myprvid
-                                                          .cart[index]
-                                                          .quntity--);
-                                                    },
-                                                    child: const Icon(Icons
-                                                        .horizontal_rule_rounded))
-                                              ],
-                                            ),
-                                            Text(
-                                              myprvid.cart[index].price
-                                                  .toString(),
-                                              style: TextStyle(
-                                                fontSize: 26,
-                                                fontWeight: FontWeight.w600,
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceEvenly,
+                                                    children: [
+                                                      ElevatedButton(
+                                                          onPressed: () {
+                                                            myprvid.subcart(
+                                                                myprvid
+                                                                    .cart[index]
+                                                                    .quntity);
+                                                          },
+                                                          child: const Icon(
+                                                              Icons.add)),
+                                                      Text(
+                                                        myprvid
+                                                            .cart[index].quntity
+                                                            .toString(),
+                                                        style: const TextStyle(
+                                                          fontSize: 27,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                        ),
+                                                      ),
+                                                      ElevatedButton(
+                                                          onPressed: () {
+                                                            myprvid.addcart(
+                                                                myprvid
+                                                                    .cart[index]
+                                                                    .quntity--);
+                                                          },
+                                                          child: const Icon(Icons
+                                                              .horizontal_rule_rounded))
+                                                    ],
+                                                  ),
+                                                  Text(
+                                                    (myprvid.cart[index].price *
+                                                            myprvid.cart[index]
+                                                                .quntity)
+                                                        .toString(),
+                                                    style: TextStyle(
+                                                      fontSize: 26,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceEvenly,
+                                                    children: [
+                                                      ElevatedButton(
+                                                          onPressed: () {
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                          },
+                                                          child: Text('CLose')),
+                                                      ElevatedButton(
+                                                          onPressed: () {
+                                                            // myprvid.addToCart(cartModel: CartModel(name: name, imagepath: imagepath, price: price, quntity: quntity, index: index))
+                                                          },
+                                                          child: Text('Ok')),
+                                                    ],
+                                                  ),
+                                                ],
                                               ),
-                                            )
-                                          ],
+                                            ],
+                                          ),
                                         );
                                       },
                                     );
